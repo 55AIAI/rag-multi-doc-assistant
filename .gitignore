@@ -1,0 +1,27 @@
+# Environment & secrets
+rag_app/.env
+.env
+
+# Virtual environment
+venv/
+.venv/
+rag_app/venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Vector DB (large binary, regenerate from data)
+rag_app/chroma_db/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

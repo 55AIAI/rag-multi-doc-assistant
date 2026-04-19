@@ -1,0 +1,17 @@
+{
+  "Bektas": {
+    "test1": []
+  },
+  "Bek": {
+    "1": [
+      {
+        "role": "user",
+        "content": "CONFORMATIONS OF DNA , what is that and tell about major conformations"
+      },
+      {
+        "role": "assistant",
+        "content": "**Answer:** DNA conformations refer to the distinct three-dimensional structural forms that DNA can adopt, with the three major ones being B-DNA (right-handed, physiological form), A-DNA (right-handed, wider and shorter, observed in vitro and in DNA/RNA hybrids), and Z-DNA (left-handed, narrower and longer, formed in alternating purine-pyrimidine sequences and implicated in gene regulation).\n\n**Explanation:** As stated in *Bioinformatics for Beginners 2014*, DNA exists in multiple helical conformations depending on environmental conditions (e.g., salt concentration) and sequence context. B-DNA is the canonical right-handed double helix described by Watson and Crick, with a 2 nm diameter, 3.4 nm pitch, and 10 base pairs per turn. A-DNA is also right-handed but adopts a more compact, dehydrated structure (2.3 nm diameter, 2.6 nm pitch, 11 bp/turn), commonly seen in DNA/RNA hybrids or low-humidity conditions. Z-DNA is left-handed and zigzag-shaped, stabilized by alternating GC sequences (e.g., GCGCGC), with a 1.8 nm diameter, 3.7 nm pitch, and 12 bp/turn; it forms transiently in vivo and may influence transcription.\n\n**Key Points:**  \n- B-DNA is the predominant, biologically active right-handed conformation under physiological conditions.  \n- A-DNA is a right-handed, dehydrated form observed in vitro and in DNA/RNA hybrids, with greater width and fewer base pairs per unit length than B-DNA.  \n- Z-DNA is a left-handed conformation induced by alternating purine–pyrimidine sequences (especially GC repeats) and is associated with regulatory roles in gene expression."
+      }
+    ]
+  }
+}

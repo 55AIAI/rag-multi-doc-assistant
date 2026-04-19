@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv/Scripts/pip list *)",
+      "Bash(\"/c/Users/User/Desktop/RAG_Project/rag_app/venv/Scripts/pip.exe\" install *)",
+      "Bash(\"/c/Users/User/Desktop/RAG_Project/rag_app/venv/Scripts/pip.exe\" show *)"
+    ]
+  }
+}
