@@ -132,7 +132,7 @@ streamlit run app/app.py
 
 ## 🧑‍💻 Author
 
-Built by [Your Name]
+Built by Bektas Mukhambetov
 
 ---
 
