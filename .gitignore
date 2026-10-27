@@ -29,3 +29,12 @@ Thumbs.db
 # Uploaded documents and persisted chat content must not be committed
 rag_app/chats.json
 rag_app/data/
+
+# Private runtime artifacts (previously tracked files require separate history review)
+.env.*
+!.env.example
+runtime/
+backend/runtime/
+.pytest_cache/
+*.sqlite3
+evaluation/results/*.json
