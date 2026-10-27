@@ -1,0 +1,52 @@
+name: Python checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  fast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install torch==2.14.1+cpu --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install -r backend/requirements-dev.txt
+      - run: python -m compileall -q backend/app frontend/app.py
+      - run: python -m ruff check backend frontend evaluation
+      - run: python -m pytest backend/tests -q
+        env:
+          PYTHONPATH: backend
+          DATABASE_URL: sqlite+pysqlite:///:memory:
+          JWT_SECRET: ci-only-secret-at-least-thirty-two-bytes
+          DATA_DIR: ${{ runner.temp }}/rag-test
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: rag_test
+          POSTGRES_USER: rag
+          POSTGRES_PASSWORD: test-only-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U rag -d rag_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install torch==2.14.1+cpu --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install -r backend/requirements-dev.txt
+      - run: python -m pytest backend/tests -q -m integration
+        env:
+          PYTHONPATH: backend
+          DATABASE_URL: sqlite+pysqlite:///:memory:
+          JWT_SECRET: ci-only-secret-at-least-thirty-two-bytes
+          TEST_POSTGRES_URL: postgresql+psycopg://rag:test-only-password@127.0.0.1:5432/rag_test
