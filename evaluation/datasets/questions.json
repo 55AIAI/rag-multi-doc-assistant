@@ -1,0 +1,4 @@
+[
+  {"question": "Who coordinates Project Atlas?", "expected_source": "sample.txt", "expected_answer": "Mira Chen"},
+  {"question": "When does the support desk operate?", "expected_source": "sample.txt", "expected_answer": "09:00 to 17:00 UTC on weekdays"}
+]
