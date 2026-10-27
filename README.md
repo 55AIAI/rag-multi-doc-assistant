@@ -1,8 +1,10 @@
 # 📄 RAG Multi-Document Assistant
 
-A production-ready Retrieval-Augmented Generation (RAG) application that allows users to chat with multiple documents using semantic search and LLM-powered answers.
+A local prototype Retrieval-Augmented Generation (RAG) application that allows users to chat with multiple documents using semantic search and LLM-powered answers.
 
 ---
+
+> **Security / deployment notice:** This prototype is intended for a single trusted local user. Entering a name is **not authentication**. All uploaded document embeddings share one Chroma database and chat histories are stored in a local JSON file. **Do not expose this Streamlit app publicly or use it for confidential multi-user documents** until proper identity verification, per-user storage isolation and authorization checks are implemented. Previously committed files may persist in Git history; adding .gitignore rules does not remove them from history.
 
 ## 🚀 Features
 
@@ -63,7 +65,7 @@ rag_app/
 ### 1. Clone repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/rag-multi-doc-assistant.git
+git clone https://github.com/55AIAI/rag-multi-doc-assistant.git
 cd rag-multi-doc-assistant
 ```
 
@@ -77,7 +79,7 @@ venv\Scripts\activate
 ### 3. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r rag_app/requirements.txt
 ```
 
 ---
@@ -95,6 +97,7 @@ QWEN_API_KEY=your_api_key_here
 ## ▶️ Run the app
 
 ```bash
+cd rag_app
 streamlit run app/app.py
 ```
 
