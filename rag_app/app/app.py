@@ -254,9 +254,11 @@ with tab_chat:
                     st.stop()
 
             # Step 2 — Stream answer
+            # The user message was already appended to messages above.
+            # Exclude it here or the LLM receives the same question twice.
             history = [
                 {"role": m["role"], "content": m["content"]}
-                for m in messages[-6:]
+                for m in messages[:-1][-6:]
             ]
 
             answer_placeholder = st.empty()
